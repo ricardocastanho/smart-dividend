@@ -1,0 +1,4 @@
+/collector/node_modules
+/collector/dist
+/collector/.env
+/collector/tsconfig.tsbuildinfo
