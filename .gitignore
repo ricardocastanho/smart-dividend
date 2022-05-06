@@ -2,3 +2,4 @@
 /collector/dist
 /collector/.env
 /collector/tsconfig.tsbuildinfo
+/collector/coverage

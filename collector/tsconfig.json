@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "sourceMap": false,
     "declaration": false,
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist"
   },
   "include": [
