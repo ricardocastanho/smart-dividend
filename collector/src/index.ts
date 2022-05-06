@@ -1,10 +1,9 @@
 import 'dotenv/config'
-import puppeteer from 'puppeteer'
+
+import { buildBrowser } from './config'
+import { collectData } from './collect'
 
 (async (): Promise<void> => {
-  const browser = await puppeteer.launch({ headless: false })
-  const page = await browser.newPage()
-  await page.goto(process.env.APP_HELPER_URL)
-
-  await browser.close()
+  const browser = await buildBrowser()
+  await collectData(browser)
 })()
