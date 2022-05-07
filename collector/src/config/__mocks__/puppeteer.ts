@@ -1,14 +1,17 @@
-import { Browser } from 'puppeteer'
-
-export const pageMock = {
-  goto: jest.fn().mockReturnThis()
-}
+import { Browser, Page } from 'puppeteer'
 
 jest.mock('puppeteer', () => {
   return {
+    Page: jest.fn().mockImplementation(function () {
+      return {
+        goto: jest.fn().mockReturnThis()
+      }
+    }),
     Browser: jest.fn().mockImplementation(() => {
       return {
-        newPage: jest.fn(() => pageMock),
+        newPage: jest.fn(function () {
+          return this.pageMock
+        }),
         close: jest.fn().mockReturnValue(undefined)
       }
     })
@@ -16,3 +19,4 @@ jest.mock('puppeteer', () => {
 })
 
 export const BrowserMock = Browser as unknown as jest.Mock<Browser>
+export const PageMock = Page as unknown as jest.Mock<Page>

@@ -5,5 +5,9 @@ import { collectData } from './collect'
 
 (async (): Promise<void> => {
   const browser = await buildBrowser()
-  await collectData(browser)
+
+  const page = await browser.newPage()
+  await collectData(page)
+
+  await browser.close()
 })()
