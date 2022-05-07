@@ -10,14 +10,22 @@
     "moduleResolution": "node",
     "sourceMap": false,
     "declaration": false,
-    "rootDir": ".",
-    "outDir": "dist"
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
   },
   "include": [
     "./**/*.ts",
   ],
   "exclude": [
     "node_modules/**/*",
-    "dist"
+    "dist",
+    "tests",
+    "./jest.config.ts"
   ]
 }
