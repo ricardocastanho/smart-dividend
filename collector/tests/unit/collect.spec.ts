@@ -1,22 +1,7 @@
-import { Browser } from 'puppeteer'
+import { pageMock, BrowserMock } from '@/config/__mocks__/puppeteer'
 import { collectData } from '@/collect'
 
-const pageMock = {
-  goto: jest.fn().mockReturnThis()
-}
-
-jest.mock('puppeteer', () => {
-  return {
-    Browser: jest.fn().mockImplementation(() => {
-      return {
-        newPage: jest.fn(() => pageMock),
-        close: jest.fn().mockReturnValue(undefined)
-      }
-    })
-  }
-})
-
-const BrowserMock = Browser as unknown as jest.Mock<Browser>
+jest.mock('@/config/puppeteer')
 
 describe('collecting data', () => {
   it('should go to a especified tab', async () => {
