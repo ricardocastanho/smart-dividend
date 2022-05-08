@@ -4,7 +4,10 @@ jest.mock('puppeteer', () => {
   return {
     Page: jest.fn().mockImplementation(function () {
       return {
-        goto: jest.fn().mockReturnThis()
+        goto: jest.fn().mockReturnThis(),
+        click: jest.fn().mockReturnThis(),
+        type: jest.fn().mockReturnThis(),
+        waitForNavigation: jest.fn().mockReturnThis()
       }
     }),
     Browser: jest.fn().mockImplementation(() => {

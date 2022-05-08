@@ -7,7 +7,7 @@ import { collectData } from './collect'
   const browser = await buildBrowser()
 
   const page = await browser.newPage()
-  await collectData(page)
+  await collectData(page, 'PETR4')
 
   await browser.close()
 })()
